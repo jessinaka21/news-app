@@ -19,6 +19,9 @@ function displayNews(articles) {
     for (const article of articles) {
       const articleDiv = document.createElement("div");
       articleDiv.className = 'newsdiv';
+      articleDiv.addEventListener('click', () => {
+        window.open(article.url, '_blank');
+        });
       // Display title
       const title = document.createElement("h4");
       title.textContent = article.title;
@@ -33,18 +36,8 @@ function displayNews(articles) {
       image.src = article.urlToImage;
       image.width = 400;
       articleDiv.appendChild(image);
-      // Display author
-      const author = document.createElement("p");
-      author.textContent = article.author;
-      articleDiv.appendChild(author);
       // Display description
       const brief = document.createElement("p");
       brief.textContent = article.description;
       articleDiv.appendChild(brief);
-      // Display url to article
-      const url = document.createElement("a");
-      url.href = article.url;
-      url.textContent = 'Read more';
-      url.target = '_blank';
-      articleDiv.appendChild(url);
 }
